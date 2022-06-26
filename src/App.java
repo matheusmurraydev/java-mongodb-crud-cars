@@ -3,10 +3,10 @@ import garage.Garage;
 public class App 
 {
     public static void main(String[] args) throws Exception {
-        executeDigitalGarageApplication();
+        executeConsoleCrudForCars();
     }
 
-    private static void executeDigitalGarageApplication() {
-        new Garage(); 
+    private static void executeConsoleCrudForCars() {
+        new Garage();
     }
 }
