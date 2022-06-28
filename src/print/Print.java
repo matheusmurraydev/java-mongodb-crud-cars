@@ -1,4 +1,5 @@
 package print;
+
 public class Print 
 {
     public static void allMessages() {
@@ -8,10 +9,11 @@ public class Print
         readMessage(Colors.CYAN);
         updateMessage(Colors.CYAN);
         destroyMessage(Colors.CYAN);
+        exitMessage(Colors.RED);
     }
     
     public static void welcomeMessage(String color) {
-        print("Welcome to #digitalgarage. The hub for car enthusiasts.", color);
+        print("Welcome to @digitalgarage. The hub for car enthusiasts.", color);
     }
     
     public static void explanationMessage(String color) {
@@ -32,6 +34,10 @@ public class Print
     
     public static void destroyMessage(String color) {
         print("Update a car from your garage? Type 4", color);
+    }
+    
+    public static void exitMessage(String color) {
+        print("Exit? Type 0", color);
     }
     
     public static void print(String text, String color) {

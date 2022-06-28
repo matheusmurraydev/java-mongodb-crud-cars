@@ -1,5 +1,7 @@
 package garage.functionalities.add;
 
+import org.bson.Document;
+import com.mongodb.client.MongoCollection;
 import garage.models.Car;
 import input.Input;
 import print.Colors;
@@ -9,7 +11,7 @@ public class Add
     private Car car;
     private String userInput;
 
-    public Add() {
+    public Add(MongoCollection<Document> collectionCars) {
 
         this.instantiateCar();
 
@@ -27,7 +29,9 @@ public class Add
         this.captureInformationInputedByUser();
         this.setCarYear();
 
-        this.insertCarIntoDatabase();
+        this.insertCarIntoDatabase(collectionCars);
+
+        showSuccessMessage();
 
     }
 
@@ -72,8 +76,12 @@ public class Add
         this.userInput = input;
     }
     
-    private void insertCarIntoDatabase() {
-        
+    private void insertCarIntoDatabase(MongoCollection<Document> collectionCars) {
+        this.car.setDocument();
+        collectionCars.insertOne(this.car.getDocument());
     }
 
+    private void showSuccessMessage() {
+        Print.succesMessage(this.car.getBrand(), Colors.GREEN);
+    }
 }

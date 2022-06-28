@@ -2,7 +2,7 @@ package garage.functionalities.add;
 
 import print.Colors;
 
-public class Print 
+public class Print
 {
     public static void allMessages() {
         initialMessage(Colors.PURPLE);
@@ -12,7 +12,7 @@ public class Print
     }
 
     public static void initialMessage(String color) {
-        print("Let's add a new car to your #digitalgarage.", color);
+        print("Let's add a new car to your @digitalgarage.", color);
     }
 
     public static void askingForBrand(String color) {
@@ -25,6 +25,10 @@ public class Print
 
     public static void askingForYear(String color) {
         print("Type your car Year...", color);
+    }
+
+    public static void succesMessage(String carBrand, String color) {
+        print("Your " + carBrand + " was successfully added to your @digitalgarage", color);
     }
     
     public static void print(String text, String color) {

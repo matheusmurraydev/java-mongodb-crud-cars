@@ -27,7 +27,7 @@ public class Database {
     }
 
     private void setMongoClient() {
-        this.mongoClient = new MongoClient(new MongoClientURI("<removed-while-dot-env-is-not-implemented>"));
+        this.mongoClient = new MongoClient(new MongoClientURI("mongodb+srv://mmurray:npirqXVAZxYEw5Ah@digitalgarage.gt4b6a8.mongodb.net/?retryWrites=true&w=majority"));
     }
     
     private void setMongoDatabase() {

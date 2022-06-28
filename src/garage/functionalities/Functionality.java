@@ -1,42 +1,49 @@
 package garage.functionalities;
 
+import org.bson.Document;
+import com.mongodb.client.MongoCollection;
 import garage.functionalities.add.Add;
+import garage.functionalities.exit.Exit;
+import garage.functionalities.visualize.Visualize;
 
-public class Functionality 
+public class Functionality
+ 
 {
-    public static void execute(int option) {
+    private MongoCollection<Document> collectionCars;
+
+    public Functionality(MongoCollection<Document> collectionCars) {
+        this.setCollectionCars(collectionCars);
+    }
+
+    private void setCollectionCars(MongoCollection<Document> collectionCars) {
+        this.collectionCars = collectionCars;
+    }
+
+    public void execute(int option) {
         switch (option) {
             case 1:
-                addACarToYourGarage();
+                this.addACarToYourGarage();
                 break;
             case 2:
-                seeCarsInYourGarage();
+                this.seeCarsInYourGarage();
                 break;
-            case 3:
-                updateCarsInYourGarage();
-                break;
-            case 4:
-                deleteCarsFromYourGarage();
+            case 0:
+                this.exit();
                 break;
         }
     }
 
-    private static void addACarToYourGarage() {
-        new Add();
+    private void addACarToYourGarage() {
+        new Add(this.collectionCars);
     }
 
-    private static void seeCarsInYourGarage() {
+    private void seeCarsInYourGarage() {
         // new Check();
-        new Add();
+        new Visualize(this.collectionCars);
     }
 
-    private static void updateCarsInYourGarage() {
-        // new Update();
-        new Add();
+    private void exit() {
+        new Exit();
     }
 
-    private static void deleteCarsFromYourGarage() {
-        // new Delete();
-        new Add();
-    }
 }

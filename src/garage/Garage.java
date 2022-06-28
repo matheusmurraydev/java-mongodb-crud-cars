@@ -30,6 +30,6 @@ public class Garage {
     }
 
     private void showMenu() {
-        new Menu();
+        new Menu(this.collectionCars);
     }
 }
